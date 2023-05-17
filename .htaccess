@@ -1,0 +1,228 @@
+Header set Access-Control-Allow-Origin *
+
+Options -Indexes
+
+# Do not remove this line or mod_rewrite rules and search engine friendly URLs will stop working
+
+RewriteBase /
+
+RewriteEngine On
+
+RewriteCond %{SERVER_PORT} 80
+
+RewriteRule ^(.*)$ https://pokerteam87.fr/$1 [R,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule .*\.(gif|jpg|png)$ /image/avatar/default_avatar.png [NC]
+
+
+#PAGE ADMINISTRATION
+RewriteRule ^Administration$  /src/controllers/administration/administration.php [L]
+
+#ADMINISTRATION MANCHE
+RewriteRule ^Choix_menus$  /src/controllers/administration/menu_choice.php [L]
+RewriteRule ^Inscription_manche$  /src/controllers/sleeve/sleeve_inscription.php [L]
+RewriteRule ^Liste_Repas_Manche$  /src/controllers/sleeve/meal_reservation_sleeve.php [L]
+RewriteRule ^Imprimer_Reservations$  /src/controllers/sleeve/reservation_print.php [L]
+
+#ADMINISTRATION MEMBRE
+RewriteRule ^Administration_Membres$  /src/controllers/administration/member/administration_members.php [L]
+RewriteRule ^Edition_Membre$  /src/controllers/administration/member/edit_member.php [L]
+RewriteRule ^Parametre_membre$  /src/controllers/administration/member/member_parameter.php [L]
+RewriteRule ^Administration_Adhesions$  /src/controllers/administration/member/administration_members_ships.php [L]
+
+#ADMINISTRATION INTERCLUBS
+RewriteRule ^Administration_Tournois$  /src/controllers/administration/tournament/administration_tournament.php [L]
+RewriteRule ^Edition_Tournoi$  /src/controllers/administration/tournament/edit_tournament.php [L]
+RewriteRule ^Inscription_Monsterstack_Admin$  /src/controllers/administration/tournament/registration_player.php [L]
+RewriteRule ^Edition_Inscrit$  /src/controllers/administration/tournament/edit_registrant.php [L]
+RewriteRule ^Liste_inscrits_tournois$  /src/controllers/administration/tournament/administration_registrants.php [L]
+RewriteRule ^Reservation_Repas_Monsterstack$  /src/controllers/administration/tournament/meal_reservation_tournament.php [L]
+RewriteRule ^Impression_Reservation_Repas_Monsterstack$  /src/controllers/administration/tournament/meal_reservation_tournament_print.php [L]
+
+#ADMINISTRATION ARTICLES
+RewriteRule ^Administration_Articles$  /src/controllers/administration/items/administration_items.php [L]
+RewriteRule ^Edition_article$  /src/controllers/administration/items/edit_item.php [L]
+
+#ADMINISTRATION AFFICHAGE
+RewriteRule ^Administration_Banniere$  /src/controllers/administration/display/administration_banner.php [L]
+RewriteRule ^Administration_Sponsors$  /src/controllers/administration/display/administration_sponsors.php [L]
+RewriteRule ^Edition_Sponsor$  /src/controllers/administration/display/edit_sponsor.php [L]
+RewriteRule ^Administration_Widget$  /src/controllers/administration/display/administration_widget.php [L]
+RewriteRule ^Edition_Widget$  /src/controllers/administration/display/edit_widget.php [L]
+RewriteRule ^Administration_Photos_Vainqueur$  /src/controllers/administration/display/administration_winner_picture.php [L]
+RewriteRule ^Edition_Info$  /src/controllers/administration/display/edit_info_club.php [L]
+
+#ADMINISTRATION CALENDRIER
+RewriteRule ^Administration_Evenements$  /src/controllers/administration/calendar/administration_calendar.php [L]
+RewriteRule ^Administration_Championnats$  /src/controllers/administration/calendar/administration_championship.php [L]
+RewriteRule ^Administration_Organisateurs$  /src/controllers/administration/calendar/administration_organizer.php [L]
+RewriteRule ^Administration_Competitions$  /src/controllers/administration/calendar/administration_competition.php [L]
+RewriteRule ^Administration_Clubs$  /src/controllers/administration/calendar/administration_clubs.php [L]
+RewriteRule ^Edition_Evenement$  /src/controllers/administration/calendar/edit_event.php [L]
+RewriteRule ^Edition_Club$  /src/controllers/administration/calendar/edit_club.php [L]
+RewriteRule ^Edition_Competition$  /src/controllers/administration/calendar/edit_competition.php [L]
+
+#LE CLUB
+RewriteRule ^Club$  /src/controllers/club/presentation_club.php [L]
+RewriteRule ^CA$  /src/controllers/club/info_club.php?id=ca [L]
+RewriteRule ^Statut$  /src/controllers/club/info_club.php?id=st [L]
+RewriteRule ^Info_club$  /src/controllers/club/info_club.php? [L]
+RewriteRule ^Reglement$  /src/controllers/club/info_club.php?id=ri [L]
+RewriteRule ^Trombinoscope$  /src/controllers/club/trombinoscope.php [L]
+
+#NEWS
+RewriteRule ^Article$  /src/controllers/items/items.php [L]
+RewriteRule ^Liste_article$  /src/controllers/items/items_list.php [L]
+RewriteRule ^Lire_article$  /src/controllers/items/item_read.php [L]
+
+#ADHESION
+RewriteRule ^Adhesion.php$  /php/club/Adhesion.php [L]
+RewriteRule ^Choix_adhesion.php$  /php/club/Choix_adhesion.php [L]
+RewriteRule ^bulletinadhesion2020.pdf$  /fichier/adhesion/2020/bulletinadhesion2020.pdf [L]
+RewriteRule ^Selection_impression.php$  /php/club/Selection_impression.php [L]
+RewriteRule ^Telecharge_justificatif.php$  /php/club/Telecharge_justificatif.php [L]
+RewriteRule ^Validation_adhesion.php$  /php/club/Validation_adhesion.php [L]
+
+#COMPETITION
+RewriteRule ^Classement$  /src/controllers/competition/classement.php [L]
+RewriteRule ^Competition$  /src/controllers/competition/competition.php [L]
+RewriteRule ^CompetitionD$  /src/controllers/competition/competitionD.php [L]
+RewriteRule ^Hall_of_fame$  /src/controllers/competition/hall_of_fame.php [L]
+RewriteRule ^Hall_of_fame2$  /src/controllers/competition/hall_of_fame.php [L]
+RewriteRule ^Index_classement.php$  /php/competition/Index_classement.php [L]
+RewriteRule ^Reglement_competition$  /src/controllers/competition/competition_rules.php [L]
+RewriteRule ^tournois_encours.php$  /php/competition/tournois_encours.php [L]
+RewriteRule ^Inscription_tournoi.php$  /php/tournoi/Inscription_tournoi.php [L]
+RewriteRule ^Inscription_Manche$  /src/controllers/sleeve/sleeve_inscription.php [L]
+
+#CALENDRIER
+RewriteRule ^Calendrier$  /src/controllers/calendar/calendar.php [L]
+RewriteRule ^CalendrierD$  /src/controllers/calendar/calendarD.php [L]
+
+#MEMBRE
+RewriteRule ^Inscription$  /src/controllers/member/registration.php [L]
+RewriteRule ^Edition_Profil$  /src/controllers/member/edit_profile [L]
+RewriteRule ^Liste_membre$  /src/controllers/member/member_list.php [L]
+RewriteRule ^Connexion$  /src/controllers/member/connection.php [L]
+RewriteRule ^Profil$  /src/controllers/member/profile.php [L]
+RewriteRule ^Recuperer_mot_de_passe$  /src/controllers/member/recover_password.php [L]
+
+#MESSAGERIE
+RewriteRule ^Boite_Envoi$  /src/controllers/messaging/outbox.php [L]
+RewriteRule ^Envoi$  /src/controllers/messaging/new_message.php [L]
+RewriteRule ^Envoye$  /src/controllers/messaging/message_sent.php [L]
+RewriteRule ^Lecture$  /src/controllers/messaging/read_message.php
+RewriteRule ^Reception$  /src/controllers/messaging/reception.php [L]
+
+#FORUM
+RewriteRule ^Categorie.php$  /php/forum/Categorie.php [L]
+RewriteRule ^Forum.php$  /php/forum/forum.php [L]
+RewriteRule ^Sous_forum.php$  /php/forum/Sous_forum.php [L]
+
+#CONTACT
+RewriteRule ^Contact_animation$  /src/controllers/contact/animated_contact.php [L]
+RewriteRule ^Contact_inscription$  /src/controllers/contact/contact_registration.php [L]
+RewriteRule ^Formulaire_contact$  /src/controllers/contact/contact_form.php [L]
+
+#COOKIE
+RewriteRule ^Cookie.php$  /src/controllers/cookie/cookie.php [L]
+
+#WIDGET
+RewriteRule ^widget_right.php$  /src/controllers/widget/widget_right.php [L]
+
+#TOURNAMENT
+RewriteRule ^Monsterstack$  /src/controllers/tournament/tournament.php [L]
+RewriteRule ^Inscription_Monsterstack$  /src/controllers/tournament/tournament_registration.php [L]
+RewriteRule ^Inscription_Monsterstack_Suite$  /src/controllers/tournament/tournament_registration_meal.php [L]
+RewriteRule ^Liste_Inscription_Monsterstack$  /src/controllers/tournament/registration_list.php [L]
+
+RewriteRule ^Chipcount_deepstack.php$  /php/tournoi/Chipcount_deepstack.php [L]
+
+# JFLB :
+
+RewriteRule ^Liste_inscription_monster.php$  /php/monsterstack/Liste_inscription_monster.php [L]
+RewriteRule ^Chipcount_monster.php$  /php/monsterstack/Chipcount_monster.php [L]
+RewriteRule ^Inscription_monster.php$  /php/monsterstack/Inscription_monster.php [L]
+RewriteRule ^structure.php([0-9]{0,2})$  /php/monsterstack/structure.php?id=$1 [QSA,L,NC]
+RewriteRule ^monster([0-9]{0,2})$  /php/monsterstack/Inscription_monster.php?id=$1 [QSA,L,NC]
+RewriteRule ^BattleRoyale$  /php/monsterstack/Inscription_monster.php?id=19 [QSA,L,NC]
+RewriteRule ^MONSTER([0-9]{0,2})$  /php/monsterstack/Inscription_monster.php?id=$1 [QSA,L]
+RewriteRule ^Suite_monster.php$  /php/monsterstack/Suite_monster.php [L]
+RewriteRule ^marathon$  /php/monsterstack/Inscription_marathon.php [L,NC]
+RewriteRule ^Suite_marathon.php$  /php/monsterstack/Suite_marathon.php [L]
+RewriteRule ^Liste_inscription_marathon.php$  /php/monsterstack/Liste_inscription_marathon.php [L]
+RewriteRule ^Inscription_open.php$  /php/membre/Inscription_open.php [L]
+
+RewriteRule ^tournois_encours_large.php$  /php/competition/tournois_encours_large.php [L]
+
+RewriteRule ^jsonshowder.php$  /jflb/traitTD/jsonshowder.php [L]
+
+RewriteRule ^jsonlist.php$  /jflb/traitTD/jsonlist.php [L]
+
+RewriteRule ^jsontest.php$  /jflb/traitTD/jsontest.php [L]
+
+###RewriteRule ^jsonlist-(TR[0-9]M[0-9]{1,2}).html$   /jflb/traitTD/jsonlist.php?$1 [L,NC]
+
+RewriteRule ^jsonlist-(TR[0-9]M[0-9]{1,2})$   /jflb/traitTD/jsonlist.php?$1 [L,NC]
+
+RewriteRule ^jsonmt-(MT[1-9]D1[A-C]|MT[1-9]D[2-3])$   jflb/traitTDMT/jsonmt.php?$1 [L,NC]
+
+RewriteRule ^jsonmt-(MT[1-9])$   jflb/traitTDMT/jsonmt.php?$1 [L,NC]
+
+RewriteRule ^tournois-(TR[0-9]M[0-9]{1,2}).html$   /jflb/traitTD/tournois.php?$1 [QSA,L,NC]
+
+RewriteRule ^tournois-(TR[0-9]M[0-9]{1,2})$   /jflb/traitTD/tournois.php?$1 [QSA,L,NC]
+
+###RewriteRule ^mstack-(MT[1-9]D1[A-C]|MT[1-9]D2)$   /jflb/traitTDMT/mstack.php?$1 [QSA,L,NC]
+
+RewriteRule ^(MT[1-9])$   /jflb/traitTDMT/mstack_inhibe.php?$1 [L,NC]
+
+RewriteRule ^(MT[1-9]D1[A-C]|MT[1-9]D[2-3])$   /jflb/traitTDMT/mstack_inhibe.php?$1 [L,NC]
+
+RewriteRule ^cloture-(MT[1-9])$   jflb/traitTDMT/tournois_cloture.php?$1 [L,NC]
+
+RewriteRule ^redraw-(mt[1-9])$   redraw/$1.html [L,NC]
+
+RewriteRule ^redraw-(TR[0-9]M[0-9]{1,2})$   redraw/$1.html [L,NC]
+
+RewriteRule ^redrawD2-(MT[1-9])$   jflb/traitTDMT/tournois_redrawD2.php?$1 [L,NC]
+
+RewriteRule ^redrawD2-(mt[1-9]).html$   jflb/traitTDMT/fichtrav/redrawD2-$1.html [L,NC]
+
+RewriteRule ^redrawD3-(MT[1-9])$   jflb/traitTDMT/tournois_redrawD3.php?$1 [L,NC]
+
+RewriteRule ^redrawD3-(mt[1-9]).html$   jflb/traitTDMT/fichtrav/redraw3-$1.html [L,NC]
+
+RewriteRule ^tablesD2-(MT[1-9])$   jflb/traitTDMT/redraw_tableD2.php?$1 [L,NC]
+
+RewriteRule ^tablesD2-(mt[1-9]).html$   jflb/traitTDMT/fichtrav/redraw_tableD3-$1.html [L,NC]
+
+RewriteRule ^tablesD3-(MT[1-9])$   jflb/traitTDMT/redraw_tableD3.php?$1 [L,NC]
+
+RewriteRule ^tablesD3-(mt[1-9]).html$   jflb/traitTDMT/fichtrav/redraw_tableD3-$1.html [L,NC]
+
+#RewriteRule ^csvredraw-(MT[1-9])$   jflb/traitTDMT/csvredraw.php?$1 [L,NC]
+
+RewriteRule ^csvredrawD2-(MT[1-9])$   jflb/traitTDMT/csvredrawD2.php?$1 [L,NC]
+
+RewriteRule ^csvredrawD3-(MT[1-9])$   jflb/traitTDMT/csvredrawD3.php?$1 [L,NC]
+
+RewriteRule ^winares-(WI[A-B]M[0-9]{1,2}).html$   /jflb/trait_WINA/winares.php?$1 [L]
+
+RewriteRule ^winares-(FR[A-B]M[0-9]{1,2}).html$   /jflb/trait_WINA/winares.php?$1 [L]
+
+RewriteRule ^JeValideMonAdhesion-([^-^.]+).html$   /php/club/JeValideMonAdhesion.php?id=$1 [L]
+
+RewriteRule ^tournois.php$   /jflb/traitTD/tournois.php [L]
+
+RewriteRule ^trombiwina.php$  /php/club/Trombiwina_jflb.php [L]
+
+RewriteRule ^competition_jflb.php$  /php/competition/Competition_jflb.php [L]
+
+RewriteRule ^urlcode.php  /jflb/urlcourte/urlcode.php [L]
+
+RewriteRule ^([2-9A-Za-z]{4})$  /jflb/urlcourte/urltrans.php?url=$1  [L]
+
+RewriteRule ^([2-9A-Za-z]{4})-(.*)$  /jflb/urlcourte/urltrans.php?url=$1&varia=$2  [QSA,L]
